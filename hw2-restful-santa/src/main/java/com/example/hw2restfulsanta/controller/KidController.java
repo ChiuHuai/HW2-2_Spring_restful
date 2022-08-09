@@ -20,7 +20,7 @@ public class KidController {
     @GetMapping
     public List<Kid> getAllKids() {
         List<Kid> kids = this.kidService.getAllKids();
-        if(kids.size() == 0){
+        if (kids.size() == 0) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No kids in the list.");
         }
         return kids;
@@ -30,7 +30,7 @@ public class KidController {
     @GetMapping("/{id}")
     public Kid getKid(@PathVariable int id) {
         Kid kid = this.kidService.getKidById(id);
-        if(kid == null){
+        if (kid == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Not Found");
         }
         return kid;
@@ -53,7 +53,7 @@ public class KidController {
     @PutMapping("/{id}")
     public Kid updateKid(@PathVariable int id, @RequestBody Kid kid) {
         Kid updateKid = this.kidService.updateKid(id, kid);
-        if(updateKid == null){
+        if (updateKid == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Not Found");
         }
         return updateKid;

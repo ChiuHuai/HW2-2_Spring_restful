@@ -20,6 +20,7 @@ public class KidService {
 
     /**
      * 取得所有小朋友
+     *
      * @return kidList
      */
     public List<Kid> getAllKids() {
@@ -28,6 +29,7 @@ public class KidService {
 
     /**
      * 根據 id 取得該小朋友資料
+     *
      * @param id
      * @return Kid 小朋友資料
      */
@@ -43,20 +45,21 @@ public class KidService {
     /**
      * 新增小朋友至清單
      * 大於等於18、id重複、(地址、年紀及名字)重複 無法新增 並拋出Exception
+     *
      * @param kid
      * @return Kid 新增的小朋友資料
      * @throws Exception
      */
     public Kid createKid(Kid kid) throws Exception {
-        for(Kid k : this.kidList){
-            if(kid.getAge() >= 18){
+        for (Kid k : this.kidList) {
+            if (kid.getAge() >= 18) {
                 throw new Exception("This guy is not a kid anymore! ");
             }
-            if(k.getId() == kid.getId()){
+            if (k.getId() == kid.getId()) {
                 throw new Exception("This ID is not available, please change it!");
             }
-            if(k.getAddress().equals(kid.getAddress()) && k.getAge() == kid.getAge()
-                    && k.getName().equals(kid.getName()) ){
+            if (k.getAddress().equals(kid.getAddress()) && k.getAge() == kid.getAge()
+                    && k.getName().equals(kid.getName())) {
                 throw new Exception("same kid cannot receive more than 1 gift!");
             }
         }
@@ -67,6 +70,7 @@ public class KidService {
 
     /**
      * 根據id 取得小朋友資料並修改
+     *
      * @param id
      * @param kid
      * @return Kid 修改過後的小朋友資料
@@ -86,6 +90,7 @@ public class KidService {
 
     /**
      * 根據id 從清單中刪除該小朋友
+     *
      * @param id
      * @return Kid 刪掉的小朋友
      */
